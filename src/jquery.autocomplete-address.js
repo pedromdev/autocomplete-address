@@ -77,18 +77,18 @@
 					// integração com nice-select
 					if ($state.next().hasClass('nice-select'))
 						$state.niceSelect('update');
+					$state.change();
 				} else {
 					$state.val(values.uf);
 				}
-				$state.change();
 
 				if ($city.is('select')) {
 					$city.children('option:contains("' + values.localidade + '")').prop('selected', true);
 					$city.data('select', values.localidade);
+					$city.change();
 				} else {
 					$city.val(values.localidade);
 				}
-				$city.change();
 
 				if (this.settings.setReadonly)
 					this.checkStatusField([$address, $neighborhood, $city, $state]);
