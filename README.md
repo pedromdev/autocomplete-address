@@ -52,6 +52,7 @@ $('#cep').autocompleteAddress();
 <input name="bairro" id="bairro" data-autocomplete-neighborhood>
 <input name="cidade" id="cidade" data-autocomplete-city>
 <input name="estado" id="estado" data-autocomplete-state>
+<input name="ibge" id="ibge" data-autocomplete-ibge>
 ```
 
 ## Usando por classes
@@ -61,6 +62,7 @@ $('#cep').autocompleteAddress();
 <input name="bairro" id="bairro" class="autocomplete-neighborhood">
 <input name="cidade" id="cidade" class="autocomplete-city">
 <input name="estado" id="estado" class="autocomplete-state">
+<input name="ibge" id="ibge" class="autocomplete-ibge">
 ```
 
 ## Usando por seletores específicos para cada campo
@@ -71,6 +73,7 @@ $('#cep').autocompleteAddress({
   address: 'input#meu-endereco',
   neighborhood: 'form .fields .bairro',
   state: '.my-state-field',
+  ibge: '#ibge',
   publicAPI: 'https://viacep.com.br/ws/{{cep}}/json/',
 });
 ```

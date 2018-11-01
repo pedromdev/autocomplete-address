@@ -6,6 +6,7 @@
 			neighborhood: "",
 			city: "",
 			state: "",
+			ibge: "",
 			setReadonly: true,
 	};
 
@@ -26,6 +27,7 @@
 				$neighborhood = this.getData("autocomplete-neighborhood");
 				$city = this.getData("autocomplete-city");
 				$state = this.getData("autocomplete-state");
+				$ibge = this.getData("autocomplete-ibge");
 				currentCep = $cep.val();
 				if($cep.mask){
 					$cep.mask("99999-999");
@@ -90,17 +92,19 @@
 					$city.val(values.localidade);
 				}
 
+				$ibge.val(values.ibge);
+
 				if (this.settings.setReadonly)
-					this.checkStatusField([$address, $neighborhood, $city, $state]);
+					this.checkStatusField([$address, $neighborhood, $city, $state, $ibge]);
 			},
 			checkStatusField: function(fields) {
 				var i = fields.length,
 					$field,
 					val;
 				while (i--) {
-					$field = $(fields[i]);
+					$field = fields[i];
 					val = $field.val();
-					if (fields[i].length > 0 && val && val.match(/[a-z]/i))
+					if (fields[i].length > 0 && val && val.match(/[a-z0-9]/i))
 						$field.addClass('disabled').prop('readonly', true);
 					else
 						$field.removeClass('disabled').prop('readonly', false);
